@@ -101,6 +101,12 @@ console.log(increment());//2
 console.log(increment());//3
 
 
+
+
+
+
+
+
 //4.Callback vs. Promise vs. Async/Await:
 // Explain the differences between callbacks, promises, and async/await in JavaScript,
 // including when and why you might choose one over the other.
@@ -121,6 +127,8 @@ if(error){
 
 //2.Lets move ahead to the What are Promises?
 //Promises represent the eventual completion (or failure) of an asynchronous operation and it allows chaining multiple asynchronous operations together.
+//.then(): This method is used to handle the successful fulfillment of a Promise. It takes a callback function as an argument, which will be executed when the Promise resolves successfully. This callback receives the resolved value of the Promise as its argument.
+
 fetchData()
 .then((data)=>{
 console.log("Handle the data using Promises .then method:",data);
@@ -131,11 +139,13 @@ console.error(error);
 
 //example handling with an API:-
 fetch('https://api.example.com/data')
-.then((response)=> response.json())
-.then((data)=> console.log(data))
-.catch((error)=> console.log(error))
+.then((response)=> response.json()) // Handle successful response
+.then((data)=> console.log(data))// Handle data //resolve
+.catch((error)=> console.log(error))// Handle errors //reject
 
 //3.Async/await is a modern javascript feature for handling asynchronous operations in a more synchronous-looking way, making asynchronous code easier to read and write.
+// try: This block is used to wrap code that may potentially throw an error. If an error occurs within the try block, control is passed to the catch block.
+// catch: This block is used to catch and handle errors that occur within the corresponding try block. If an error occurs in the try block, control is passed to the catch block, and the error object is available for further handling.
 async function fetchData() {
   try {
     const data = await fetchData();
