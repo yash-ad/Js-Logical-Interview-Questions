@@ -128,7 +128,7 @@ if(error){
 //2.Lets move ahead to the What are Promises?
 //Promises represent the eventual completion (or failure) of an asynchronous operation and it allows chaining multiple asynchronous operations together.
 //.then(): This method is used to handle the successful fulfillment of a Promise. It takes a callback function as an argument, which will be executed when the Promise resolves successfully. This callback receives the resolved value of the Promise as its argument.
-
+//.catch(): This method is used to handle errors that occur during the execution of a Promise chain. It takes a callback function as an argument, which will be executed if any error occurs in the preceding .then() methods or if the Promise is rejected. This callback receives the error object as its argument.
 fetchData()
 .then((data)=>{
 console.log("Handle the data using Promises .then method:",data);
