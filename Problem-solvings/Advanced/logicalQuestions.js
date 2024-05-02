@@ -99,3 +99,60 @@ const increment = outer();
 console.log(increment());//1
 console.log(increment());//2
 console.log(increment());//3
+
+
+//4.Callback vs. Promise vs. Async/Await:
+// Explain the differences between callbacks, promises, and async/await in JavaScript,
+// including when and why you might choose one over the other.
+
+//1.Lets discuss about what are callBacks?
+//callBacks are function that are passed as arguments to other functions ,to be executed later 
+//and they are commonly used in asynchronous programming.
+//Example below:-
+fetchdata((error,data)=>{
+if(error){
+  console.log("Please handle error",error)
+}else{
+  console.log("Handle the data :",data);
+}
+});
+
+
+
+//2.Lets move ahead to the What are Promises?
+//Promises represent the eventual completion (or failure) of an asynchronous operation and it allows chaining multiple asynchronous operations together.
+fetchData()
+.then((data)=>{
+console.log("Handle the data using Promises .then method:",data);
+})
+.catch((error)=>{
+console.error(error);
+})
+
+//example handling with an API:-
+fetch('https://api.example.com/data')
+.then((response)=> response.json())
+.then((data)=> console.log(data))
+.catch((error)=> console.log(error))
+
+//3.Async/await is a modern javascript feature for handling asynchronous operations in a more synchronous-looking way, making asynchronous code easier to read and write.
+async function fetchData() {
+  try {
+    const data = await fetchData();
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+//example handling with an API:-
+
+async function fetchData(){
+  try {
+    const response = await fetch('https://api.example.com/data');
+    const data = await response.json(); //Handle data
+    console.log(data);
+  } catch (error) {
+    console.error(error) //Handle errors
+  }
+}
