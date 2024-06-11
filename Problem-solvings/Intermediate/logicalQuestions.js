@@ -27,9 +27,7 @@ console.log(calculateFactorial(5));//120
 
 //3.Reverse a String:
 // Write a function to reverse a given string.
-
 function reverseString(string){
-return string.split('').reverse().join('')
+return string.split('').reverse().join('');
 }
-
 console.log(reverseString("Hello"));//olleH
