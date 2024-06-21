@@ -78,7 +78,68 @@ user.greeting = function(){
 console.log(user.greeting()); //Hello User
 
 user.greetingTwo = function(){
-    console.log(`Hello user : ${this.name},Welcome to the Ekart.`);
+    console.log(`Hello user : ${this.name}, Welcome to the Ekart.`);
 }
 
 console.log(user.greetingTwo());//Hello user : Yash,Welcome to the Ekart. 
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////
+//21-06-24:-
+
+//Practice set questions:-
+
+//Arrays practice questions:-
+
+const arrOne = [1,2,3,4,5,6];
+
+const arrTwo = [7,8,9,10,11,12];
+
+//There are two types to merge an array 
+//1.concat:-
+const mergeTheArray = arrOne.concat(arrTwo);
+
+console.log(`MergedArray:${mergeTheArray}`); //MergedArray:1,2,3,4,5,6,7,8,9,10,11,12
+
+//2.Spread-Operator:-
+
+const mergeArrayWithSpread = [...arrOne,...arrTwo];
+
+console.log(`MergedArray with using spread:${mergeArrayWithSpread}`);//MergedArray with using spread:1,2,3,4,5,6,7,8,9,10,11,12
+
+
+
+// const isItAnArray = Array.isArray("Yash");
+// console.log(isItAnArray); //false
+
+// const isItAnArray = Array.from("Yash");
+// console.log(isItAnArray);//[ 'Y', 'a', 's', 'h' ]
+
+// const isItAnArray = Array.of("Yash");
+// console.log(isItAnArray);//[ 'Yash' ]
+
+// const isItAnArray = Array.from({name:"Yash"});
+// console.log(isItAnArray);//[]
+
+
+
+
+///.Objects part two:-
+
+//Object destructure:-
+const person = {
+    name:"Yash",
+    age:"26",
+    city:"Pune"
+};
+
+//Its an older way to access keys as variables from an object.
+console.log(person.name);
+console.log(person.age);
+console.log(person.city);
+
+
+//Newer way to access keys as vairbales from an object.
+const {name,age,city} = person
+
+console.log(person);//{ name: 'Yash', age: '26', city: 'Pune' }
