@@ -139,7 +139,7 @@ console.log(person.age);
 console.log(person.city);
 
 
-//Newer way to access keys as vairbales from an object.
+//Newer way to access keys as variables from an object.
 const {name,age,city} = person
 
 console.log(person);//{ name: 'Yash', age: '26', city: 'Pune' }
