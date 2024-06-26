@@ -225,3 +225,119 @@ console.log(multiplyNums(2,2)); //4
     //Anonymous
 console.log(name);
 })("Animal"); //Animal
+
+
+///.How does javascript execute code + call stack :-
+
+
+//.Javascript execution context:-
+
+//Whenever the Js code or programs run 'The Global execution context is created'.
+
+
+//Javascript it is a single threaded language.
+
+
+//There are Two execution contexts in javscript:-
+
+//1.Global Execution Context:-
+//2.Function Execution Context:-
+
+//Every execution contexts has two phases which are memory phase and execution phase.
+
+//1.The memory phase which is for allocating the memory for variables and functions and in that phase the value is undefined for vairables and for function is the functions definition.
+//2.The execution phase which is for executing the variables and functions with their own values.
+
+
+//Lets take an example below:-
+let val1 = 10;
+let val2 = 20;
+
+function addNumbers(num1,num2){
+let total = num1 + num2;
+return total;
+}
+
+let resultOne = addNumbers(val1,val2);
+let resultTwo = addNumbers(5,5);
+console.log(resultOne);//30
+console.log(resultTwo);//10
+
+
+//Code explanation:-
+
+//So how this code works in the Js engine:-
+//First and foremost thing is The Global Execution context is created,
+//There are two phases the first is memory phase and the second is Execution phase.
+
+//1.Memory creation phase:-
+//val1 = undefined;
+//val2 = undefined;
+//addNumbers = function definition()
+// resultOne = undefined;
+// resultTwo = undefined;
+
+//2.Execution phase:-
+//val1 = 10;
+//val2 = 20;
+//addNumbers = function definition()
+// resultOne = 30;
+// resultTwo = 10;
+
+
+//Whenver the function executes a new function execution context is created and pushes it to the callstack and when the execution completes the function execution context is removed from the context.
+//Same thing repeat memory phase and execution phase
+
+
+
+///.Higher order array loops its also known as Higher order function.
+//Higher order function is a function that takes or accept other functions as arguments or return function as their results:-
+
+
+
+//1.ForEach loop:-
+const myNewArray = [1,2,3,4,5,6,7];
+myNewArray.forEach((nums)=>{
+console.log(nums);
+})
+
+
+
+const codingLanguages = ['js','ruby','python','java'];
+
+// codingLanguages.forEach((language)=>{
+// console.log(`The coding languages are ${language}`);
+// })
+
+//The parameters or arguments accepts are item,index,arr.
+
+codingLanguages.forEach((language)=>{
+console.log(`The coding languages are ${language}`);
+})
+
+
+//How to loop over an Array of objects for extracting  the values:-
+
+
+const dataBaseFiles = [{
+mobilePhone:"Iphone 11",
+mobilePrice:15000
+},
+{
+mobilePhone:"Iphone 12",
+mobilePrice:16000
+},
+{
+mobilePhone:"Iphone 13",
+mobilePrice:17000
+},
+{
+mobilePhone:"Iphone 14",
+mobilePrice:18000
+}];
+
+dataBaseFiles.forEach((item)=>{
+console.log(item.mobilePhone);
+console.log(item.mobilePrice);
+})
+
