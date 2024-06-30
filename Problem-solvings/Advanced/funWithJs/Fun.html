@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-color: black;">
+    <button id="orange">Orange</button>
+    <button id="green">Green</button>
+    <script>
+
+
+//Old way:-
+// document.getElementById('orange').onclick = function(){
+//     document.body.style.backgroundColor = 'orange'
+// }
+// document.getElementById('green').onclick = function(){
+//     document.body.style.backgroundColor = 'green'
+// }
+
+
+let orangeColor = document.getElementById('orange');
+let greenColor = document.getElementById('green');
+
+//New way with clickHandler function with a closure example:-
+function clickHandler(colors){
+// document.body.style.backgroundColor = `${color}` //Its not working when the user clicks
+//So lets make it a new function and return it:-
+
+
+//Because it has a reference of an outer function it can be accessible
+return function (){
+  document.body.style.backgroundColor = `${colors}`; 
+}
+
+}
+orangeColor.onclick = clickHandler('orange');
+greenColor.onclick = clickHandler('green');
+
+    </script>
+</body>
+</html>

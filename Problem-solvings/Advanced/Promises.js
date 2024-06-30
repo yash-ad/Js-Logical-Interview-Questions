@@ -1,6 +1,6 @@
 //What is a promise:-
 
-//The Promise represents an object completion or failure of an asynchronous operations.
+//The Promise represents an object  eventual completion or failure of an asynchronous operations.
 //There are four states in Promise:-
 //1.Pending state: This is an intitial state , neither is fulfilled nor rejected.
 //2.Fulfilled state: That means the operation was completed sucessfully.
@@ -105,6 +105,8 @@ const promiseFive = new Promise((Resolve,Reject)=>{
     },1000)
     });
 
+
+    // With async and await keyword:-
     async function consumePromiseFive(){
 try {
     const response = await promiseFive;
@@ -113,4 +115,38 @@ try {
     console.log(error);
 }
     }
-    consumePromiseFive()
+    consumePromiseFive();
+
+////////////////////////////////////////////////////////////////////////////////////////////////
+
+//Example six:-
+//With using 'fetch' keyword:-
+
+async function getUserInfo(){
+    //Lets wrap into the try catch:-
+try {
+    const response = await fetch('https://randomuser.me/api/');
+//  console.log(response);
+const data = await response.json()
+console.log(data); 
+} catch (error) {
+  console.error(error)  
+}
+}
+getUserInfo()
+
+/////////////////////////////////////////////////////////////////////////////////////////////////
+
+//Exmaple 6
+//With '.then() and .catch()':-
+fetch('https://randomuser.me/api/')
+.then((response)=>{
+return response.json();
+// console.log(data);
+})
+.then((userData)=>{
+console.log(userData);
+})
+.catch((error)=>{
+console.log('Error handling',error);
+})
